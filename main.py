@@ -43,7 +43,10 @@ def add_user():
 
     cursor.execute("""INSERT INTO `users` (`user_id,`name`,`email`,`password`) VALUES (NULL, '{}', '{}', '{}')""".format(name,email,password))
     conn.commit()
-    return "User Registered Successfully"
+    cursor.execute("""SELECT * FROM `users` WHERE `email` LIKE `{}`""" .format(email))
+    myuser=cursor.fetchall()
+    session['user_id']=myuser[0][0]
+    return redirect('/')
 
 @app.route('/logout')
 def logout():
