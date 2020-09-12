@@ -37,6 +37,7 @@
       .card {
         margin-right: 150px;
         margin-top: 50px;
+        
       }
       .bg-nav {
         background: #159957; /* fallback for old browsers */
@@ -261,6 +262,11 @@
       .active {
         display: block;
       }
+      .navbar{
+          position :fixed;
+          top : 0;
+          width: 100%;
+      }
     </style>
   </head>
   <body>
@@ -270,7 +276,7 @@
     </nav>
     <div>
       <div class="row">
-        <div class="col-md-4">
+        <div class="col-md-3">
           <!--<h1 class="text-light mt-50" style="font-size: 100px;">Bring the Power of The Nation in You</h1>-->
           <input type="checkbox" id="check" />
           <div class="mobile_nav">
@@ -316,32 +322,96 @@
           <div class="card">
             <div class="card-body">
               <form class="form-home" method="post" action="/add_user">
-                <h3 class="mt-20">Complainant's Login</h3>
+                <h3 class="mt-20">Complainant Registeration Form</h3>
                 <br />
                 <label>Name</label><br />
                 <input type="text" class="form-control" name="uname" /><br />
-                <label>Email</label><br />
+
+                <label>Gender</label><br />
+                <input type="text" class="form-control" name="uname" /><br />
+
+                <label>Date Of Birth</label><br />
+                <input type="date" id="myDate" value="dd-mm-yyyy"><br /><br />
+                <!--<p id="demo"></p>-->
+
+                <label>Address</label><br />
+                <input type="text" class="form-control" name="uname" /><br />
+
+                <label>Contact Number</label><br />
+                <input type="text" class="form-control" name="uname" /><br />
+
+                <label>email id</label><br />
                 <input type="email" class="form-control" name="uemail" /><br />
-                <label>Password</label><br />
-                <input
-                  type="password"
-                  class="form-control"
-                  name="upassword"
-                /><br /><br />
-                <input
-                  type="submit"
-                  class="btn btn-primary btn-block btn-lg"
-                  value="login"
-                />
+
+                <label>Subject</label><br />
+                <select name="Subject" id="subject">
+                    <option value="Bribery">Bribery</option>
+                    <option value="Harasment">Harasment</option>
+                    <option value="Bullying">Bullying</option>
+                    <option value="Person Missing">Person Missing</option>
+                    <option value="Vehicle Missing">Vehicle Missing</option>
+                    <option value="CellPhone Missing">CellPhone Missing</option>
+                    <option value="Jewel Snatching">Jewel Snatching</option>
+                    <option value="Bag Lifting or Theft">Bag Lifting or Theft</option>
+                    <option value="Other Theft">Other Theft</option>
+                    <option value="Receiving Stolen Property">Receiving Stolen Property</option>
+                    <option value="Document Missing">Document Missing</option>
+                    <option value="Cheating or Embezzlement or Land Grabbing">Cheating or Embezzlement or Land Grabbing</option>
+                    <option value="Making Counterfeit Notes or Coins">Making Counterfeit Notes or Coins</option>
+                    <option value="Murder">Murder</option>
+                    <option value="Kidnapping or Wrongful Confinement">Kidnapping or Wrongful Confinement</option>
+                    <option value="Hurt">Hurt</option>
+                    <option value="Damaging Property">Damaging Property</option>
+                    <option value="Wordly Quarrel or Threatening">Wordly Quarrel or Threatening</option>
+                    <option value="Extortion">Extortion</option>
+                    <option value="Public Nuisance">Public Nuisance</option>
+                    <option value="Eve Teasing">Eve Teasing</option>
+                    <option value="Offence Related to Marriage">Offence Related to Marriage</option>
+                    <option value="Rape">Rape</option>
+                    <option value="Cyber Offences">PCyber Offences</option>
+                    <option value="Traffic Violation">Traffic Violation</option>
+                    <option value="Other Offences">Person Missing</option>
+                  </select><br /><br />
+                
+
+                <label>Date Of Occurance</label><br />
+                <input type="date" id="myDate" value="dd-mm-yyyy"><br /><br />
+                
+                <label>Place Of Occurance</label><br />
+                <input type="text" class="form-control" name="uname" /><br />
+
+                <label>Description</label><br />
+                <input type="password" class="form-control" name="upassword"/><br /><br />
+
+                <input type="submit" class="btn btn-primary btn-block btn-lg" value="Register" />
               </form>
-              <p class="mt-20">
-                Already a member? <a href="/"> Then Log in here</a>
-              </p>
             </div>
           </div>
         </div>
       </div>
     </div>
+
+
+    <script>
+        window.onscroll = function() {myFunction()};
+
+        var navbar = document.getElementById("navbar");
+        var sticky = navbar.offsetTop;
+
+    function myFunction() {
+        if (window.pageYOffset >= sticky) {
+            navbar.classList.add("sticky")
+        } else {
+            navbar.classList.remove("sticky");
+        }
+    }
+    
+    function myFunction() {
+      var x = document.getElementById("myDate").value;
+      document.getElementById("demo").innerHTML = x;
+    }
+    
+    </script>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script
