@@ -12,6 +12,22 @@
 
     <title>Hello, world!</title>
     <style>
+       
+        .mt-50{
+            margin-top: 100px;
+            margin-left: 50px;
+
+        }
+        .mt-20{
+            margin-top: 20px;
+        }
+        .container-home{
+            float:left;
+        }
+        .card{
+            margin-right: 150px;
+            margin-top: 200px;
+        }
         .bg-nav{
             background: #159957;  /* fallback for old browsers */
             background: -webkit-linear-gradient(to right, #155799, #159957);  /* Chrome 10-25, Safari 5.1-6 */
@@ -66,7 +82,7 @@
             z-index: 1; 
             top: 0;
             background: linear-gradient(to bottom, #155799, #159957) !important;
-            margin-top: 55px;
+            margin-top: 47px;
             margin-bottom: 50px;
             padding-top: 30px;
             position: fixed;
@@ -268,25 +284,20 @@
         .active{
             display: block;
         }
-        
-
     </style>
   </head>
   <body> 
     <nav class="navbar bg-nav">
-        <a href="" class="navbar-brand text-light">Police Complaint lodging</a>
+        <a href="" class="navbar-brand">Police Complaint lodging</a>
         <a href="/logout" class="navbar-brand text-light">Logout</a>
-        
-
     </nav>
     <div class="container-home">
         <div class="row">
             <div class="col-md-8">
                 <!--<h1 class="text-light mt-50" style="font-size: 100px;">Bring the Power of The Nation in You</h1>-->
-
-            </div>
-        
-            <input type="checkbox" id="check">
+                
+                
+                <input type="checkbox" id="check">
            
             <div class="mobile_nav">
                 <div class="mobile_nav_items">
@@ -298,30 +309,39 @@
                 <a href="#"><i class="fas fa-sliders-h"></i><span>Contact Us</span></a>
               </div>
             </div>
-            <!--mobile navigation bar end-->
-            <!--sidebar start-->
             <div class="sidebar">
-              <div class="profile_info">
-                <img src="1.png" class="profile_image" alt="">
-                <!--<h4>Jessica</h4>-->
+                <div class="profile_info">
+                  <img src="1.png" class="profile_image" alt="">
+                  <!--<h4>Jessica</h4>-->
+                </div>
+                <a href="#"><i class="fas fa-desktop"></i><span>Home</span></a>
+                <a href="/register_complaint"><i class="fas fa-cogs"></i><span>Register Complaint</span></a>
+                <a href="#"><i class="fas fa-table"></i><span>Complaint History</span></a>
+                <a href="#"><i class="fas fa-th"></i><span>Helpline</span></a>
+                <a href="#"><i class="fas fa-info-circle"></i><span>Resources</span></a>
+                <a href="#"><i class="fas fa-sliders-h"></i><span>Contact Us</span></a>
               </div>
-              <a href="#"><i class="fas fa-desktop"></i><span>Home</span></a>
-              <a href="/register_complaint"><i class="fas fa-cogs"></i><span>Register Complaint</span></a>
-              <a href="#"><i class="fas fa-table"></i><span>Complaint History</span></a>
-              <a href="#"><i class="fas fa-th"></i><span>Helpline</span></a>
-              <a href="#"><i class="fas fa-info-circle"></i><span>Resources</span></a>
-              <a href="#"><i class="fas fa-sliders-h"></i><span>Contact Us</span></a>
             </div>
-            <!--sidebar end-->
+            <div class="col-md-2">
+                <div class="card">
+                    <div class="card-body">
+                        <form class="form-home" method="post" action="/add_user">
+                            <h3 class="mt-20">Complainant's Login</h3><br>
+                            <label>Name</label><br>
+                            <input type="text" class="form-control" name="uname"><br>
+                            <label>Email</label><br>
+                            <input type="email" class="form-control" name="uemail"><br>
+                            <label>Password</label><br>
+                            <input type="password" class="form-control" name="upassword"><br><br>
+                            <input type="submit" class="btn btn-primary btn-block btn-lg" value="login">
+                        </form>
+                        <p class="mt-20"> Already a member? <a href="/"> Then Log in here</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
-            <script type="text/javascript">
-                $(document).ready(function(){
-                  $('.nav_btn').click(function(){
-                    $('.mobile_nav_items').toggleClass('active');
-                  });
-                });
-                </script>
-            
 
     
 

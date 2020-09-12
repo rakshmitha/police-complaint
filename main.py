@@ -46,5 +46,9 @@ def logout():
     session.clear() 
     return redirect('/')
 
+@app.route('/register_complaint')
+def register_complaint():
+    return render_template('/register_complaint.html')
+    
 if __name__=="__main__":
     app.run(debug=True)
