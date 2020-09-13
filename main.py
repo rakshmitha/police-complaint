@@ -49,6 +49,22 @@ def logout():
 @app.route('/register_complaint')
 def register_complaint():
     return render_template('/register_complaint.html')
+
+@app.route('/incident_registration', methods=['POST','GET'])
+def incident_registration():
+    name=request.form.get('cname')
+    gender=request.form.get('cgender')
+    dob=request.form.get('cdob')
+    caddress=request.form.get('caddress')
+    contactno=request.form.get('ccontact')
+    email=request.form.get('cemail')
+    Subject=request.form.get('Subject')
+    date_of_occurance=request.form.get('date_of_occurance')
+    place_pf_occurance=request.form.get('place_of_occurance')
+    description=request.form.get('description')
+    myuser_id=dbs.complaint_details(cname, cgender, cdob, caddress, ccontactno, cemail, Subject, date_of_occurance, place_of_occurance, description)
+    session['user_id']=myuser_id
+    return redirect('/dashboard')
     
 if __name__=="__main__":
     app.run(debug=True)
