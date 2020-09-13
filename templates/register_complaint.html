@@ -22,7 +22,7 @@
       integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
       crossorigin="anonymous"
     />
-    <title>Hello, world!</title>
+    <title>Incident Registration</title>
     <style>
       .mt-50 {
         margin-top: 100px;
@@ -321,27 +321,27 @@
         <div class="col-md-8">
           <div class="card">
             <div class="card-body">
-              <form class="form-home" method="post" action="/add_user">
+              <form class="form-home" method="post" action="/incident_registration">
                 <h3 class="mt-20">Complainant Registeration Form</h3>
                 <br />
                 <label>Name</label><br />
-                <input type="text" class="form-control" name="uname" /><br />
+                <input type="text" class="form-control" name="cname" /><br />
 
                 <label>Gender</label><br />
-                <input type="text" class="form-control" name="uname" /><br />
+                <input type="text" class="form-control" name="cgender" /><br />
 
                 <label>Date Of Birth</label><br />
-                <input type="date" id="myDate" value="dd-mm-yyyy"><br /><br />
+                <input type="date" id="myDate" value="dd-mm-yyyy" name="cdob"><br /><br />
                 <!--<p id="demo"></p>-->
 
                 <label>Address</label><br />
-                <input type="text" class="form-control" name="uname" /><br />
+                <input type="text" class="form-control" name="caddress" /><br />
 
                 <label>Contact Number</label><br />
-                <input type="text" class="form-control" name="uname" /><br />
+                <input type="text" class="form-control" name="ccontactno" /><br />
 
                 <label>email id</label><br />
-                <input type="email" class="form-control" name="uemail" /><br />
+                <input type="email" class="form-control" name="cemail" /><br />
 
                 <label>Subject</label><br />
                 <select name="Subject" id="subject">
@@ -375,13 +375,13 @@
                 
 
                 <label>Date Of Occurance</label><br />
-                <input type="date" id="myDate" value="dd-mm-yyyy"><br /><br />
-                
+                <input type="date" id="myDate" value="dd-mm-yyyy" name="date_of_occurance"><br /><br />
+
                 <label>Place Of Occurance</label><br />
-                <input type="text" class="form-control" name="uname" /><br />
+                <input type="text" class="form-control" name="place_of_occurance" /><br />
 
                 <label>Description</label><br />
-                <input type="password" class="form-control" name="upassword"/><br /><br />
+                <input type="password" class="form-control" name="description"/><br /><br />
 
                 <input type="submit" class="btn btn-primary btn-block btn-lg" value="Register" />
               </form>
