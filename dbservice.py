@@ -18,13 +18,8 @@ class User_Details(Base):
    email = Column(String)
    password = Column(String)
 
-
-
-Session = sessionmaker(bind = engine)
-session = Session()
-
-class complaint_details():
-    __tablename__='compalint_details'
+class Complaint_Details(Base):
+    __tablename__='complaint_details'
 
     id = Column(Integer, primary_key=True)
     cname = Column(String)
@@ -37,6 +32,11 @@ class complaint_details():
     date_of_occurance=Column(Integer)
     place_of_occurance=Column(String)
     description=Column(String)
+
+Session = sessionmaker(bind = engine)
+session = Session()
+
+
 
 def add_user(name, email, password):
     user=User_Details(name = name, email = email, password= password)
@@ -54,14 +54,18 @@ def login(email, password):
     else:
         return -1
 
-def incident_registration(name, gender, dob, address, contactno, email, Subject, date_of_occurance, place_of_occurance, description):
-    user=complaint_details(cname=name, cgender=gender, cdob=dob, caddress=address, ccontactno=contactno, cemail=email, Subject=Subject, date_of_occurance=date_of_occurance, place_of_occurance=place_of_occurance, description=description)
+def incident_registration(cname, cgender, cdob, caddress, ccontactno, cemail, Subject, date_of_occurance, place_of_occurance, description):
+    user=Complaint_Details(cname=cname, cgender=cgender, cdob=cdob, caddress=caddress, ccontactno=ccontactno, cemail=cemail, Subject=Subject, date_of_occurance=date_of_occurance, place_of_occurance=place_of_occurance, description=description)
 
     session.add(user)
     session.commit()
 
-    result = session.query(complaint_details).filter(complaint_details.cemail == email).first()
+    result = session.query(Complaint_Details).filter(Complaint_Details.cemail == cemail).first()
     return result.id
+
+def get_history():
+    result=session.query(Complaint_Details).all()
+    return result
 # def add_multiple_customers():
 
 #     session.add_all([
