@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -37,7 +35,6 @@
       .card {
         margin-right: 150px;
         margin-top: 50px;
-        
       }
       .bg-nav {
         background: #159957; /* fallback for old browsers */
@@ -262,10 +259,11 @@
       .active {
         display: block;
       }
-      .navbar{
-          position :fixed;
-          top : 0;
-          width: 100%;
+      .navbar {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        z-index: 10;
       }
     </style>
   </head>
@@ -321,8 +319,12 @@
         <div class="col-md-8">
           <div class="card">
             <div class="card-body">
-              <form class="form-home" method="post" action="/incident_registration">
-                <h3 class="mt-20">Complainant Registeration Form</h3>
+              <form
+                class="form-home"
+                method="post"
+                action="/incident_registration"
+              >
+                <h3 class="mt-20">Complainant Registration Form</h3>
                 <br />
                 <label>Name</label><br />
                 <input type="text" class="form-control" name="cname" /><br />
@@ -331,59 +333,105 @@
                 <input type="text" class="form-control" name="cgender" /><br />
 
                 <label>Date Of Birth</label><br />
-                <input type="date" id="myDate" value="dd-mm-yyyy" name="cdob"><br /><br />
+                <input
+                  type="date"
+                  class="form-control"
+                  id="myDate"
+                  value="dd-mm-yyyy"
+                  name="cdob"
+                  aria-describedby="date-design-prepend"
+                />
+                <br /><br />
+
                 <!--<p id="demo"></p>-->
 
                 <label>Address</label><br />
                 <input type="text" class="form-control" name="caddress" /><br />
 
                 <label>Contact Number</label><br />
-                <input type="text" class="form-control" name="ccontactno" /><br />
+                <input
+                  type="text"
+                  class="form-control"
+                  name="ccontactno"
+                /><br />
 
-                <label>email id</label><br />
+                <label>Email id</label><br />
                 <input type="email" class="form-control" name="cemail" /><br />
 
                 <label>Subject</label><br />
-                <select name="Subject" id="subject">
-                    <option value="Bribery">Bribery</option>
-                    <option value="Harasment">Harasment</option>
-                    <option value="Bullying">Bullying</option>
-                    <option value="Person Missing">Person Missing</option>
-                    <option value="Vehicle Missing">Vehicle Missing</option>
-                    <option value="CellPhone Missing">CellPhone Missing</option>
-                    <option value="Jewel Snatching">Jewel Snatching</option>
-                    <option value="Bag Lifting or Theft">Bag Lifting or Theft</option>
-                    <option value="Other Theft">Other Theft</option>
-                    <option value="Receiving Stolen Property">Receiving Stolen Property</option>
-                    <option value="Document Missing">Document Missing</option>
-                    <option value="Cheating or Embezzlement or Land Grabbing">Cheating or Embezzlement or Land Grabbing</option>
-                    <option value="Making Counterfeit Notes or Coins">Making Counterfeit Notes or Coins</option>
-                    <option value="Murder">Murder</option>
-                    <option value="Kidnapping or Wrongful Confinement">Kidnapping or Wrongful Confinement</option>
-                    <option value="Hurt">Hurt</option>
-                    <option value="Damaging Property">Damaging Property</option>
-                    <option value="Wordly Quarrel or Threatening">Wordly Quarrel or Threatening</option>
-                    <option value="Extortion">Extortion</option>
-                    <option value="Public Nuisance">Public Nuisance</option>
-                    <option value="Eve Teasing">Eve Teasing</option>
-                    <option value="Offence Related to Marriage">Offence Related to Marriage</option>
-                    <option value="Rape">Rape</option>
-                    <option value="Cyber Offences">PCyber Offences</option>
-                    <option value="Traffic Violation">Traffic Violation</option>
-                    <option value="Other Offences">Person Missing</option>
-                  </select><br /><br />
-                
+                <select name="Subject" id="subject" class="form-control">
+                  <option value="Bribery">Bribery</option>
+                  <option value="Harasment">Harasment</option>
+                  <option value="Bullying">Bullying</option>
+                  <option value="Person Missing">Person Missing</option>
+                  <option value="Vehicle Missing">Vehicle Missing</option>
+                  <option value="CellPhone Missing">CellPhone Missing</option>
+                  <option value="Jewel Snatching">Jewel Snatching</option>
+                  <option value="Bag Lifting or Theft">
+                    Bag Lifting or Theft
+                  </option>
+                  <option value="Other Theft">Other Theft</option>
+                  <option value="Receiving Stolen Property">
+                    Receiving Stolen Property
+                  </option>
+                  <option value="Document Missing">Document Missing</option>
+                  <option value="Cheating or Embezzlement or Land Grabbing">
+                    Cheating or Embezzlement or Land Grabbing
+                  </option>
+                  <option value="Making Counterfeit Notes or Coins">
+                    Making Counterfeit Notes or Coins
+                  </option>
+                  <option value="Murder">Murder</option>
+                  <option value="Kidnapping or Wrongful Confinement">
+                    Kidnapping or Wrongful Confinement
+                  </option>
+                  <option value="Hurt">Hurt</option>
+                  <option value="Damaging Property">Damaging Property</option>
+                  <option value="Wordly Quarrel or Threatening">
+                    Wordly Quarrel or Threatening
+                  </option>
+                  <option value="Extortion">Extortion</option>
+                  <option value="Public Nuisance">Public Nuisance</option>
+                  <option value="Eve Teasing">Eve Teasing</option>
+                  <option value="Offence Related to Marriage">
+                    Offence Related to Marriage
+                  </option>
+                  <option value="Rape">Rape</option>
+                  <option value="Cyber Offences">PCyber Offences</option>
+                  <option value="Traffic Violation">Traffic Violation</option>
+                  <option value="Other Offences">Person Missing</option></select
+                ><br /><br />
 
-                <label>Date Of Occurance</label><br />
-                <input type="date" id="myDate" value="dd-mm-yyyy" name="date_of_occurance"><br /><br />
+                <label>Date Of Occurrence</label><br />
+                <input
+                  type="date"
+                  class="form-control"
+                  id="myDate"
+                  value="dd-mm-yyyy"
+                  name="date_of_occurance"
+                  aria-describedby="date-design-prepend"
+                />
+                <br /><br />
 
-                <label>Place Of Occurance</label><br />
-                <input type="text" class="form-control" name="place_of_occurance" /><br />
+                <label>Place Of Occurrence</label><br />
+                <input
+                  type="text"
+                  class="form-control"
+                  name="place_of_occurance"
+                /><br />
 
                 <label>Description</label><br />
-                <input type="text" class="form-control" name="description"/><br /><br />
+                <input
+                  type="text"
+                  class="form-control"
+                  name="description"
+                /><br /><br />
 
-                <input type="submit" class="btn btn-primary btn-block btn-lg" value="Register" />
+                <input
+                  type="submit"
+                  class="btn btn-primary btn-block btn-lg"
+                  value="Register"
+                />
               </form>
             </div>
           </div>
@@ -391,26 +439,26 @@
       </div>
     </div>
 
-
     <script>
-        window.onscroll = function() {myFunction()};
+      window.onscroll = function () {
+        myFunction();
+      };
 
-        var navbar = document.getElementById("navbar");
-        var sticky = navbar.offsetTop;
+      var navbar = document.getElementById("navbar");
+      var sticky = navbar.offsetTop;
 
-    function myFunction() {
+      function myFunction() {
         if (window.pageYOffset >= sticky) {
-            navbar.classList.add("sticky")
+          navbar.classList.add("sticky");
         } else {
-            navbar.classList.remove("sticky");
+          navbar.classList.remove("sticky");
         }
-    }
-    
-    function myFunction() {
-      var x = document.getElementById("myDate").value;
-      document.getElementById("demo").innerHTML = x;
-    }
-    
+      }
+
+      function myFunction() {
+        var x = document.getElementById("myDate").value;
+        document.getElementById("demo").innerHTML = x;
+      }
     </script>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
