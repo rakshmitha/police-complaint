@@ -531,18 +531,16 @@
         <div class="col-md-2">
           <div class="mobile_nav">
             <div class="mobile_nav_items">
-              <a href="#"><i class="fas fa-desktop"></i><span>Home</span></a>
+              <a href="/dashboard"><i class="fas fa-desktop"></i><span>Home</span></a>
               <a href="/register_complaint"
                 ><i class="fas fa-cogs"></i><span>Register Complaint</span></a
               >
-              <a href="#"
-                ><i class="fas fa-table"></i><span>Complaint History</span></a
-              >
+              
               <a href="#"><i class="fas fa-th"></i><span>Helpline</span></a>
               <a href="#"
                 ><i class="fas fa-info-circle"></i><span>Resources</span></a
               >
-              <a href="#"
+              <a href="/contactus"
                 ><i class="fas fa-sliders-h"></i><span>Contact Us</span></a
               >
             </div>
@@ -554,18 +552,16 @@
               <img src="1.png" class="profile_image" alt="" />
               <!--<h4>Jessica</h4>-->
             </div>
-            <a href="#"><i class="fas fa-desktop"></i><span>Home</span></a>
+            <a href="/dashboard"><i class="fas fa-desktop"></i><span>Home</span></a>
             <a href="/register_complaint"
               ><i class="fas fa-cogs"></i><span>Register Complaint</span></a
             >
-            <a href="#"
-              ><i class="fas fa-table"></i><span>Complaint History</span></a
-            >
+            
             <a href="#"><i class="fas fa-th"></i><span>Helpline</span></a>
             <a href="#"
               ><i class="fas fa-info-circle"></i><span>Resources</span></a
             >
-            <a href="#"
+            <a href="/contactus"
               ><i class="fas fa-sliders-h"></i><span>Contact Us</span></a
             >
           </div>
@@ -580,15 +576,15 @@
               <div class="table-title">
                 <div class="row">
                   <div class="col-xs-6">
-                    <h2>Manage <b>Employees</b></h2>
+                    <h2>Your Incident Registrations</b></h2>
                   </div>
-                  <div class="col-xs-6">
+                  <!--<div class="col-xs-6">
                     <a
-                      href="#addEmployeeModal"
+                      href="/register_complaint"
                       class="btn btn-success"
                       data-toggle="modal"
-                      ><span>Add Complaint</span></a
-                    >
+                      ><span>Add Incident</span></a
+                    >-->
                   </div>
                 </div>
               </div>
@@ -598,7 +594,7 @@
                     <th>Name</th>
                     <th>Email</th>
                     <th>Subject</th>
-                    <th>Status</th>
+                    <!--<th>Status</th>-->
                     <th>Action</th>
                   </tr>
                 </thead>
@@ -608,18 +604,20 @@
                     <td>{{row.cname}}</td>
                     <td>{{row.cemail}}</td>
                     <td>{{row.Subject}}</td>
-                    <td>{{Status}}</td>
+                    <!--<td>{{Status}}</td>-->
                     <td>
-                      <input
+                      <a href="/delete/{{row.id}}">
+                      <!--<input
                         type="button"
-                        class="btn btn-primary btn-block btn-lg"
+                        class="btn btn-primary btn-block btn-lg m-2"
                         value="Delete"
-                      />
+                      
+                      /></a>--><a href="/view/{{row.id}}">
                       <input
                         type="button"
-                        class="btn btn-primary btn-block btn-lg"
+                        class="btn btn-primary btn-block btn-lg m-2"
                         value="View"
-                      />
+                      /></a>
                     </td>
                   </tr>
                   {% endfor %}
