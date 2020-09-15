@@ -6,7 +6,7 @@ from sqlalchemy.orm import sessionmaker, relationship
 # from sqlalchemy import update
 from sqlalchemy import and_, or_
 
-engine = create_engine('sqlite:///police.db', echo = True)
+engine = create_engine('sqlite:///police.db?check_same_thread=False', echo = True)
 
 Base = declarative_base() 
 
@@ -66,6 +66,12 @@ def incident_registration(cname, cgender, cdob, caddress, ccontactno, cemail, Su
 def get_history():
     result=session.query(Complaint_Details).all()
     return result
+
+def get_complaint(complaint_id):
+    result=session.query(Complaint_Details).filter(Complaint_Details.id == complaint_id).first()
+    return result
+
+
 # def add_multiple_customers():
 
 #     session.add_all([
