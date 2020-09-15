@@ -11,7 +11,7 @@ def home():
         return render_template('login.html')
     else:
         history=dbs.get_history()
-        return render_template('dashboard.html')
+        return render_template('dashboard.html',history=history)
 
 @app.route('/register')
 def about():
@@ -32,8 +32,7 @@ def login_validation():
     if myuser_id==-1:
         return render_template('login.html')   
     else:
-        session['user_id']=myuser_id
-        return redirect('/')
+        return redirect('/dashboard')
 
 @app.route('/add_user', methods=['POST','GET'])
 def add_user():
@@ -51,7 +50,7 @@ def logout():
 
 @app.route('/register_complaint')
 def register_complaint():
-    return render_template('/register_complaint.html')
+    return render_template('register_complaint.html')
 
 @app.route('/incident_registration', methods=['POST','GET'])
 def incident_registration():
@@ -68,6 +67,17 @@ def incident_registration():
     myuser_id=dbs.incident_registration(cname, cgender, cdob, caddress, ccontactno, cemail, Subject, date_of_occurance, place_of_occurance, description)
     session['user_id']=myuser_id
     return redirect('/dashboard')
+
+@app.route('/contactus')
+def contactus():
+    return render_template('contactus.html')
+
+@app.route('/view/<complaint_id>')
+def view(complaint_id):
+    complaint_details=dbs.get_complaint(complaint_id)
+    return render_template('view.html', complaint_details=complaint_details)
+
+
     
 if __name__=="__main__":
     app.run(debug=True)
