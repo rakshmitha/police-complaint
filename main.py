@@ -72,6 +72,11 @@ def incident_registration():
 def contactus():
     return render_template('contactus.html')
 
+@app.route('/helpline')
+def helpline():
+    return render_template('helpline.html')
+
+
 @app.route('/view/<complaint_id>')
 def view(complaint_id):
     complaint_details=dbs.get_complaint(complaint_id)
