@@ -313,15 +313,15 @@
             <div class="card-body">
               <form
                 class="form-home"
-                method="post"
-                action="/incident_registration"
+                method="get"
+                action="/dashboard"
               >
                 <h3 class="mt-20">Complainant Registration Form</h3>
                 <br />
                 <label>Name</label><br />
                 <input value="{{complaint_details.cname}}" readonly type="text" class="form-control" name="cname" /><br />
 
-                <label>Gender</label><br />
+                <!--<label>Gender</label><br />
                 <input value="{{complaint_details.cgender}}" readonly type="text" class="form-control" name="cgender" /><br />
 
                 <label>Date Of Birth</label><br />
@@ -334,12 +334,12 @@
                   name="cdob"
                   aria-describedby="date-design-prepend"
                 />
-                <br /><br />
+                <br /><br />-->
 
                 <!--<p id="demo"></p>-->
 
-                <label>Address</label><br />
-                <input value="{{complaint_details.caddress}}" readonly type="text" class="form-control" name="caddress" /><br />
+                <!--<label>Address</label><br />
+                <input value="{{complaint_details.caddress}}" readonly type="text" class="form-control" name="caddress" /><br />-->
 
                 <label>Contact Number</label><br />
                 <input value="{{complaint_details.ccontactno}}" readonly
@@ -351,7 +351,7 @@
                 <label>Email id</label><br />
                 <input value="{{complaint_details.cemail}}"  readonly type="email" class="form-control" name="cemail" /><br />
 
-                <label>Subject</label><br />
+                <!--<label>Subject</label><br />
                 <input value="{{complaint_details.Subject}}" readonly type="email" class="form-control">
                 <br /><br />
 
@@ -364,7 +364,7 @@
                   name="date_of_occurance"
                   aria-describedby="date-design-prepend"
                 />
-                <br /><br />
+                <br /><br />-->
 
                 <label>Place Of Occurrence</label><br />
                 <input value="{{complaint_details.place_of_occurance}}" readonly

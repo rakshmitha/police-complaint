@@ -23,15 +23,16 @@ class Complaint_Details(Base):
 
     id = Column(Integer, primary_key=True)
     cname = Column(String)
-    cgender=Column(String)
-    cdob=Column(Integer)
-    caddress=Column(String)
+    #cgender=Column(String)
+    #cdob=Column(Integer)
+    #caddress=Column(String)
     ccontactno=Column(Integer)
     cemail=Column(String)
-    Subject=Column(String)
-    date_of_occurance=Column(Integer)
+    #Subject=Column(String)
+    #date_of_occurance=Column(Integer)
     place_of_occurance=Column(String)
     description=Column(String)
+    user_id=Column(Integer)
 
 Session = sessionmaker(bind = engine)
 session = Session()
@@ -54,8 +55,8 @@ def login(email, password):
     else:
         return -1
 
-def incident_registration(cname, cgender, cdob, caddress, ccontactno, cemail, Subject, date_of_occurance, place_of_occurance, description):
-    user=Complaint_Details(cname=cname, cgender=cgender, cdob=cdob, caddress=caddress, ccontactno=ccontactno, cemail=cemail, Subject=Subject, date_of_occurance=date_of_occurance, place_of_occurance=place_of_occurance, description=description)
+def incident_registration(cname, ccontactno, cemail, place_of_occurance, description, user_id):
+    user=Complaint_Details(cname=cname, ccontactno=ccontactno, cemail=cemail, place_of_occurance=place_of_occurance, description=description, user_id=user_id)
 
     session.add(user)
     session.commit()
@@ -63,8 +64,8 @@ def incident_registration(cname, cgender, cdob, caddress, ccontactno, cemail, Su
     result = session.query(Complaint_Details).filter(Complaint_Details.cemail == cemail).first()
     return result.id
 
-def get_history():
-    result=session.query(Complaint_Details).all()
+def get_history(user_id):
+    result=session.query(Complaint_Details).filter(Complaint_Details.user_id == user_id).all()
     return result
 
 def get_complaint(complaint_id):
